@@ -1,0 +1,217 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; base-uri 'self'; img-src 'self' data:; style-src 'self'; script-src 'self'; font-src 'self'; form-action 'self'">
+  <title>Export price builder — EXW to DDP · Open MSME</title>
+  <meta name="description" content="Build FOB, CFR, CIF and DDP export quotes from an ex-works cost — haulage, THC, freight, insurance, duty, margin and bank/LC charges, one Incoterm at a time.">
+  <meta name="color-scheme" content="light dark">
+  <meta property="og:title" content="Export price builder (EXW to DDP)">
+  <meta property="og:description" content="Build FOB, CFR, CIF and DDP export quotes from an ex-works cost, one Incoterm at a time — for first-time exporters in India and the Philippines.">
+  <meta property="og:type" content="website">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="assets/style.css">
+  <link rel="stylesheet" href="assets/accent.css">
+  <script src="assets/theme-init.js"></script>
+</head>
+<body>
+  <header class="topbar">
+    <div class="wrap">
+      <a class="brand" href="https://sreenivas-sadhu-prabhakara.github.io/openmsme/">
+        <span class="dot"></span><b>Open MSME</b><span class="tag">export pricing</span>
+      </a>
+      <span class="sp"></span>
+      <a class="home" href="https://sreenivas-sadhu-prabhakara.github.io/openmsme/">All tools</a>
+      <button class="themer" data-themer type="button">Theme</button>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="wrap">
+        <div class="eyebrow">Exports &amp; trade · India + Philippines</div>
+        <h1>Export price builder from ex-works to DDP</h1>
+        <p class="lede">Build the correct FOB, CFR, CIF and DDP quote from your ex-works cost up through haulage, freight, insurance and margin — one Incoterm at a time.</p>
+        <div class="who">
+          <span class="pill">First-time exporters &amp; trading units</span>
+          <span class="pill reg">Incoterms 2020</span>
+        </div>
+      </div>
+    </section>
+
+    <div class="wrap">
+      <div class="cols calc">
+        <section class="card">
+          <h2>Inputs</h2>
+
+          <div class="field">
+            <label>Currency <span class="hint">per shipment</span></label>
+            <div class="seg" role="group" aria-label="Currency">
+              <button type="button" data-cur="USD" aria-pressed="true">$ USD</button>
+              <button type="button" data-cur="INR" aria-pressed="false">₹ INR</button>
+              <button type="button" data-cur="PHP" aria-pressed="false">₱ PHP</button>
+            </div>
+          </div>
+
+          <div class="field">
+            <label for="exworks">Ex-works cost of goods <span class="hint">cost base for EXW</span></label>
+            <div class="inp has-pre">
+              <span class="pre">$</span>
+              <input type="number" id="exworks" min="0" step="any" inputmode="decimal" value="10000">
+            </div>
+          </div>
+
+          <div class="row2">
+            <div class="field">
+              <label for="inland">Inland haulage to port</label>
+              <div class="inp has-pre">
+                <span class="pre">$</span>
+                <input type="number" id="inland" min="0" step="any" inputmode="decimal" value="300">
+              </div>
+            </div>
+            <div class="field">
+              <label for="thc">Terminal handling + export clearance <span class="hint">THC</span></label>
+              <div class="inp has-pre">
+                <span class="pre">$</span>
+                <input type="number" id="thc" min="0" step="any" inputmode="decimal" value="250">
+              </div>
+            </div>
+          </div>
+
+          <div class="row2">
+            <div class="field">
+              <label for="freight">Freight to destination <span class="hint">main carriage</span></label>
+              <div class="inp has-pre">
+                <span class="pre">$</span>
+                <input type="number" id="freight" min="0" step="any" inputmode="decimal" value="1200">
+              </div>
+            </div>
+            <div class="field">
+              <label for="ins">Insurance rate <span class="hint">on CIF basis</span></label>
+              <div class="inp has-suf">
+                <input type="number" id="ins" min="0" step="any" inputmode="decimal" value="0.5">
+                <span class="suf">%</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="row2">
+            <div class="field">
+              <label for="bank">Bank / LC charges <span class="hint">of value</span></label>
+              <div class="inp has-suf">
+                <input type="number" id="bank" min="0" step="any" inputmode="decimal" value="1.5">
+                <span class="suf">%</span>
+              </div>
+            </div>
+            <div class="field">
+              <label for="margin">Margin <span class="hint">on cost</span></label>
+              <div class="inp has-suf">
+                <input type="number" id="margin" min="0" step="any" inputmode="decimal" value="15">
+                <span class="suf">%</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="row2">
+            <div class="field">
+              <label for="dest">Destination charges <span class="hint">DDP</span></label>
+              <div class="inp has-pre">
+                <span class="pre">$</span>
+                <input type="number" id="dest" min="0" step="any" inputmode="decimal" value="400">
+              </div>
+            </div>
+            <div class="field">
+              <label for="duty">Import duty at destination <span class="hint">DDP</span></label>
+              <div class="inp has-pre">
+                <span class="pre">$</span>
+                <input type="number" id="duty" min="0" step="any" inputmode="decimal" value="800">
+              </div>
+            </div>
+          </div>
+
+          <div class="field">
+            <label for="delivery">Last-mile delivery <span class="hint">DDP</span></label>
+            <div class="inp has-pre">
+              <span class="pre">$</span>
+              <input type="number" id="delivery" min="0" step="any" inputmode="decimal" value="200">
+            </div>
+          </div>
+        </section>
+
+        <section class="card sticky">
+          <h2>Result</h2>
+
+          <div class="result-primary">
+            <div class="k">FOB selling price · per shipment</div>
+            <div class="v" id="fobPrice">—</div>
+            <div class="sub" id="subLine">—</div>
+          </div>
+
+          <table class="breakdown">
+            <thead>
+              <tr><th>Incoterm</th><th class="num">Cost</th><th class="num">Selling price</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>EXW</td><td class="num" id="cEXW">—</td><td class="num" id="sEXW">—</td></tr>
+              <tr class="total"><td>FOB</td><td class="num" id="cFOB">—</td><td class="num" id="sFOB">—</td></tr>
+              <tr><td>CFR</td><td class="num" id="cCFR">—</td><td class="num" id="sCFR">—</td></tr>
+              <tr><td>CIF</td><td class="num" id="cCIF">—</td><td class="num" id="sCIF">—</td></tr>
+              <tr><td>DDP</td><td class="num" id="cDDP">—</td><td class="num" id="sDDP">—</td></tr>
+            </tbody>
+          </table>
+
+          <h3>Cost build-up</h3>
+          <table class="breakdown">
+            <tbody>
+              <tr class="sub"><td>Ex-works</td><td class="num" id="bEX">—</td></tr>
+              <tr class="sub"><td>Inland haulage</td><td class="num" id="bIN">—</td></tr>
+              <tr class="sub"><td>Terminal handling + export clearance</td><td class="num" id="bTH">—</td></tr>
+              <tr class="total"><td>= FOB cost</td><td class="num" id="bFOB">—</td></tr>
+              <tr class="sub"><td>Freight to destination</td><td class="num" id="bFR">—</td></tr>
+              <tr class="total"><td>= CFR cost</td><td class="num" id="bCFR">—</td></tr>
+              <tr class="sub"><td>Insurance · CFR × 1.10 basis</td><td class="num" id="bINS">—</td></tr>
+              <tr class="total"><td>= CIF cost</td><td class="num" id="bCIF">—</td></tr>
+              <tr class="sub"><td>Destination + duty + delivery</td><td class="num" id="bDDE">—</td></tr>
+              <tr class="total"><td>= DDP cost</td><td class="num" id="bDDP">—</td></tr>
+            </tbody>
+          </table>
+
+          <div class="btnrow">
+            <button class="btn ghost" id="print" type="button">Print / Save PDF</button>
+            <button class="btn ghost" id="reset" type="button">Reset</button>
+          </div>
+        </section>
+      </div>
+
+      <section class="prose">
+        <h2>How it works</h2>
+        <p>An export quote is a ladder of Incoterms: each term hands the buyer the goods a little further along the journey, and each step simply adds the next cost leg. <b>EXW</b> is the bare ex-works cost at your factory gate. Add inland haulage and terminal handling with export clearance (THC) to reach <b>FOB</b> — goods loaded on board at the origin port. Add main-carriage freight to reach <b>CFR</b>. Add marine insurance to reach <b>CIF</b>. Add destination charges, import duty and last-mile delivery to reach <b>DDP</b> — delivered, duty paid, at the buyer's door.</p>
+        <p>Insurance follows the standard CIF convention: the premium is charged on 110% of the CFR value, so <code>insurance = rate% × (CFR × 1.10)</code>. Your margin is taken on cost and the bank / LC charge is a percentage of value, and both are applied to <em>every</em> Incoterm, so the selling price at each term is <code>cost × (1 + margin%/100) × (1 + bank%/100)</code>.</p>
+        <details class="assumptions">
+          <summary>Assumptions &amp; rates</summary>
+          <ul>
+            <li>Insurance basis: premium = insurance rate % × (CFR × 1.10) — the standard CIF +10% convention.</li>
+            <li>Margin is applied on cost; the bank / LC charge is a percentage of the term value.</li>
+            <li>Selling price at each Incoterm = cost × (1 + margin%/100) × (1 + bank%/100).</li>
+            <li>Cost ladder: EXW = ex-works; FOB = EXW + inland + THC; CFR = FOB + freight; CIF = CFR + insurance; DDP = CIF + destination + duty + delivery.</li>
+            <li>Buyer / seller obligations follow Incoterms 2020; this tool models the cost split only, not risk transfer or named-place variations.</li>
+            <li>All amounts are per shipment, in the currency you select.</li>
+          </ul>
+        </details>
+        <div class="note">Figures are indicative — confirm freight/insurance quotes and the obligations of each Incoterm before you commit.</div>
+      </section>
+    </div>
+  </main>
+
+  <footer class="foot">
+    <div class="wrap">
+      <span>Open MSME · open-source tool for MSMEs in India &amp; the Philippines · MIT</span>
+      <span><a href="https://sreenivas-sadhu-prabhakara.github.io/openmsme/">All tools</a></span>
+    </div>
+  </footer>
+
+  <script src="assets/ui.js"></script>
+  <script src="assets/calc.js"></script>
+</body>
+</html>
